@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog Details</title>
+  <link rel="stylesheet" href="../output.css">
+</head>
+<body class="bg-gray-100">
+
+  <!-- ✅ Nav inside body -->
+  <nav class="bg-white text-gray-800 shadow h-12 flex items-center px-6">
+    <ul class="flex space-x-28 items-center">
+      <li class="font-semibold text-lg">&lt;/&gt;CodeWithRaees</li>
+      <li><a href="index.html" class="hover:underline">Home</a></li>
+      <li><a href="Blogs.html" class="hover:underline">Blogs</a></li>
+      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Blog content -->
+  <div class="max-w-3xl mx-auto p-6">
+    <!-- Loading spinner -->
+    <div id="loading" class="text-center text-gray-600 mb-6">Loading blog...</div>
+
+    <h1 id="blog-title" class="text-3xl font-bold mb-4"></h1>
+    <img id="blog-image" class="w-full h-64 object-cover mb-6" alt="Blog image" />
+    <p id="blog-description" class="text-gray-700 text-lg mb-4"></p>
+    <div id="blog-content" class="text-gray-800 text-lg leading-10"></div> <!-- New content section -->
+  </div>
+
+  <!-- ✅ Script -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const blogId = params.get('id');
+
+    fetch(`http://localhost:5000/api/blogs/${blogId}`)
+      .then(res => {
+        if (!res.ok) throw new Error("Blog not found");
+        return res.json();
+      })
+      .then(blog => {
+        // Hide the loading text once the blog is loaded
+        document.getElementById('loading').style.display = 'none';
+
+        document.getElementById('blog-title').textContent = blog.title;
+        const img = document.getElementById('blog-image');
+        img.src = blog.image_url;
+        img.onerror = () => img.src = 'https://via.placeholder.com/600x300';
+        document.getElementById('blog-description').textContent = blog.description;
+
+        // Inject raw HTML content for the blog (instead of textContent)
+        document.getElementById('blog-content').innerHTML = blog.content;  // Display the full content with HTML
+
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('loading').textContent = "Sorry, we couldn't load the blog.";
+        document.getElementById('blog-title').textContent = "Blog not found.";
+        document.getElementById('blog-description').textContent = "Sorry, we couldn't find the blog you're looking for.";
+      });
+  </script>
+
+</body>
+</html>
