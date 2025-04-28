@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "build": "echo Building your static site..."
+    "build": "echo Building your static site..."
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Raees-khan855/Blog-website#readme",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.4",
+    "@tailwindcss/typography": "^0.5.16",
     "tailwindcss": "^4.1.4"
   }
 }

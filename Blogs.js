@@ -17,14 +17,14 @@ fetch("http://localhost:5000/api/blogs")
         card.className = "bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer";
 
         card.innerHTML = `
-          <a href="blog-details.html?id=${blog.id}">
-            <img src="${blog.image_url}" 
+          <a href="blog-details.html?id=${blog._id}">
+            <img src="${blog.image}" 
                  onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250';" 
                  class="w-full h-48 object-cover" 
                  alt="Blog image">
             <div class="p-4">
               <h2 class="text-xl font-bold text-gray-900">${blog.title}</h2>
-              <p class="text-gry-600 text-sm">${blog.description}</p>
+              <p class="text-gray-600 text-sm">${blog.content.substring(0, 150)}...</p>
             </div>
           </a>
         `;

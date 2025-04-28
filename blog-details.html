@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog Details</title>
+  <title>Blog Details - CodeWithRaees</title>
   <link rel="stylesheet" href="./src/output.css">
 </head>
 <body class="bg-gray-100">
@@ -14,18 +14,34 @@
       <li><a href="Blogs.html" class="hover:underline">Blogs</a></li>
       <li><a href="contact.html" class="hover:underline">Contact</a></li>
     </ul>
-  </nav>         
+  </nav>  
 
-  <!-- ✅ Blog content -->
-  <div class="max-w-3xl mx-auto p-6">
-    <!-- Loading spinner -->
-    <div id="loading" class="text-center text-gray-600 mb-6">Loading blog...</div>
+  <!-- ✅ Blog Content -->
+  <main class="flex-grow">
+    <div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+      
+      <!-- Loading spinner -->
+      <div id="loading" class="flex justify-center items-center space-x-3 my-12 text-gray-500">
+        <div class="w-6 h-6 border-4 border-blue-600 border-dashed rounded-full animate-spin"></div>
+        <div class="text-lg">Loading blog...</div>
+      </div>
 
-    <h1 id="blog-title" class="text-3xl font-bold mb-4"></h1>
-    <img id="blog-image" class="w-full h-64 object-cover mb-6" alt="Blog image" />
-    <p id="blog-description" class="text-gray-700 text-lg mb-4"></p>
-    <div id="blog-content" class="text-gray-800 text-lg leading-10"></div> <!-- New content section -->
-  </div>
+      <!-- Blog Details -->
+      <h1 id="blog-title" class="text-4xl font-bold text-gray-900 mb-4 leading-tight hidden"></h1>
+      <img id="blog-image" class="w-full h-72 object-cover rounded-lg mb-8 hidden" alt="Blog image" />
+      <p id="blog-description" class="text-gray-600 text-xl italic mb-6 hidden"></p>
+
+      <hr class="my-8 border-gray-300 hidden" id="content-divider" />
+
+      <div id="blog-content" class="prose lg:prose-xl max-w-none text-gray-800 leading-8 hidden"></div>
+
+    </div>
+  </main>
+
+  <!-- ✅ Footer -->
+  <footer class="bg-white text-gray-600 text-center py-6 mt-16 shadow-inner">
+    © 2025 CodeWithRaees. All rights reserved.
+  </footer>
 
   <!-- ✅ Script -->
   <script>
@@ -38,24 +54,31 @@
         return res.json();
       })
       .then(blog => {
-        // Hide the loading text once the blog is loaded
+        // Hide the loading spinner
         document.getElementById('loading').style.display = 'none';
 
+        // Fill the blog content
         document.getElementById('blog-title').textContent = blog.title;
+
+        // Ensure image URL is available
         const img = document.getElementById('blog-image');
-        img.src = blog.image_url;
-        img.onerror = () => img.src = 'https://via.placeholder.com/600x300';
-        document.getElementById('blog-description').textContent = blog.description;
+        img.src = blog.image || 'https://via.placeholder.com/600x300'; // Default placeholder if no image
+        img.onerror = () => img.src = 'https://via.placeholder.com/600x300'; // Fallback on error
 
-        // Inject raw HTML content for the blog (instead of textContent)
-        document.getElementById('blog-content').innerHTML = blog.content;  // Display the full content with HTML
+        // Ensure description and content exist
+        document.getElementById('blog-description').textContent = blog.description || 'No description available.';
+        document.getElementById('blog-content').innerHTML = blog.content || '<p>No content available.</p>';
 
+        // Show the hidden sections
+        document.getElementById('blog-title').classList.remove('hidden');
+        img.classList.remove('hidden');
+        document.getElementById('blog-description').classList.remove('hidden');
+        document.getElementById('blog-content').classList.remove('hidden');
+        document.getElementById('content-divider').classList.remove('hidden');
       })
       .catch(err => {
         console.error(err);
-        document.getElementById('loading').textContent = "Sorry, we couldn't load the blog.";
-        document.getElementById('blog-title').textContent = "Blog not found.";
-        document.getElementById('blog-description').textContent = "Sorry, we couldn't find the blog you're looking for.";
+        document.getElementById('loading').innerHTML = "<p class='text-red-500'>Sorry, we couldn't load the blog.</p>";
       });
   </script>
 
