@@ -47,8 +47,8 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const blogId = params.get('id');
-
-    fetch(`http://localhost:5000/api/blogs/${blogId}`)
+  
+    fetch(`https://hearty-strength.up.railway.app/api/blogs/${blogId}`)
       .then(res => {
         if (!res.ok) throw new Error("Blog not found");
         return res.json();
@@ -56,20 +56,17 @@
       .then(blog => {
         // Hide the loading spinner
         document.getElementById('loading').style.display = 'none';
-
+  
         // Fill the blog content
         document.getElementById('blog-title').textContent = blog.title;
-
-        // Ensure image URL is available
+  
         const img = document.getElementById('blog-image');
-        img.src = blog.image || 'https://via.placeholder.com/600x300'; // Default placeholder if no image
-        img.onerror = () => img.src = 'https://via.placeholder.com/600x300'; // Fallback on error
-
-        // Ensure description and content exist
+        img.src = blog.image || 'https://via.placeholder.com/600x300';
+        img.onerror = () => img.src = 'https://via.placeholder.com/600x300';
+  
         document.getElementById('blog-description').textContent = blog.description || 'No description available.';
         document.getElementById('blog-content').innerHTML = blog.content || '<p>No content available.</p>';
-
-        // Show the hidden sections
+  
         document.getElementById('blog-title').classList.remove('hidden');
         img.classList.remove('hidden');
         document.getElementById('blog-description').classList.remove('hidden');
@@ -81,6 +78,5 @@
         document.getElementById('loading').innerHTML = "<p class='text-red-500'>Sorry, we couldn't load the blog.</p>";
       });
   </script>
-
 </body>
 </html>

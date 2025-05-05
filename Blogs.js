@@ -1,4 +1,4 @@
-fetch("http://localhost:5000/api/blogs")
+fetch(`https://hearty-strength.up.railway.app/api/blogs`)
   .then(res => res.json())
   .then(blogs => {
     const container = document.getElementById("blog-container");
