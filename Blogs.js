@@ -1,12 +1,17 @@
-fetch(`https://hearty-strength.up.railway.app/api/blogs`)
+fetch(`http://localhost:5000/api/blogs`)
   .then(res => res.json())
-  .then(blogs => {
+  .then(data => {
+    const blogs = data.blogs || data; // support both formats
     const container = document.getElementById("blog-container");
 
-    // Clear the container before adding new blogs
+    if (!container) {
+      console.error("❌ blog-container not found in the DOM.");
+      return;
+    }
+
     container.innerHTML = '';
 
-    if (blogs.length === 0) {
+    if (!blogs.length) {
       const noBlogsMessage = document.createElement("p");
       noBlogsMessage.className = "text-center text-gray-600 text-lg";
       noBlogsMessage.textContent = "No blogs available.";
@@ -24,7 +29,7 @@ fetch(`https://hearty-strength.up.railway.app/api/blogs`)
                  alt="Blog image">
             <div class="p-4">
               <h2 class="text-xl font-bold text-gray-900">${blog.title}</h2>
-              <p class="text-gray-600 text-sm">${blog.content.substring(0, 150)}...</p>
+              <p class="text-gray-600 text-sm">${(blog.content || "").substring(0, 150)}...</p>
             </div>
           </a>
         `;

@@ -7,15 +7,29 @@
   <!-- Use CDN for Tailwind during testing -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
 </head>
-<body class="bg-gray-100">
-  <nav class="bg-white text-gray-800 shadow h-12 flex items-center px-6">
-    <ul class="flex space-x-28 items-center">
-      <li class="ml-7 font-bold text-lg">&lt;/&gt;<a href="./index.html">CodeWithRaees</a></li>
-      <li><a href="index.html" class="hover:underline">Home</a></li>
-      <li><a href="Blogs.html" class="hover:underline">Blogs</a></li>
-      <li><a href="contact.html" class="hover:underline">Contact</a></li>
-    </ul>
-  </nav>
+    <body class="bg-gray-100">
+      <nav class="bg-white text-gray-800 shadow h-12 flex items-center px-6">
+        <ul class="flex space-x-28 items-center">
+          <li class="ml-7 font-bold text-lg">&lt;/&gt;<a href="./index.html">CodeWithRaees</a></li>
+          <li><a href="index.html" class="hover:underline">Home</a></li>
+          <li><a href="Blogs.html" class="hover:underline">Blogs</a></li>
+          <li><a href="contact.html" class="hover:underline">Contact</a></li>
+          <li><a href="Login.html" class="hover:underline">Login</a></li>
+          <li><a href="signup.html" class="hover:underline">signup</a></li>
+        </ul>
+    <div class="relative w-full max-w-md mx-auto ml-7">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search..."
+        class="w-full border rounded-lg py-2 pl-4 pr-16 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <div class="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-md px-2 py-1 text-xs text-gray-600 shadow">
+        ⌘ K
+      </div>
+    </div>
+      </nav>
+      <div id="searchResults" class="mt-4 px-6"></div>
 
   <div class="max-w-6xl mx-auto p-6">
     <h1 class="text-3xl font-bold mb-10 text-center">Blogs</h1>
@@ -24,7 +38,50 @@
     </div>
   </div>
 
+  <footer class="bg-gray-100 text-gray-700 py-12 mt-10">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="font-bold text-lg mb-2">Main</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Home</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
+          <li><a href="#" class="hover:underline">Work With Us</a></li>
+          <li><a href="#" class="hover:underline">My Gear</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Learn</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Courses</a></li>
+          <li><a href="#" class="hover:underline">Tutorials</a></li>
+          <li><a href="#" class="hover:underline">Notes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Terms</a></li>
+          <li><a href="#" class="hover:underline">Privacy</a></li>
+          <li><a href="#" class="hover:underline">Refund</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Social</h3>
+        <ul class="space-y-2">
+          <li class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" class="w-5 h-5" alt="GitHub"/><a href="#" class="hover:underline">GitHub</a></li>
+          <li class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/youtube.svg" class="w-5 h-5" alt="YouTube"/><a href="#" class="hover:underline">YouTube</a></li>
+          <li class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" class="w-5 h-5" alt="Facebook"/><a href="#" class="hover:underline">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 text-center text-gray-500">
+      Made with <span class="text-red-500">❤️</span> and <span class="text-purple-700">🧋</span> in Pakistan
+    </div>
+  </footer>
+  
+
   <!-- Include the JS file for dynamic fetching -->
   <script src="Blogs.js"></script>
+  <script src="searche.js"></script>
 </body>
 </html>

@@ -6,15 +6,29 @@
   <title>Blog Details - CodeWithRaees</title>
   <link rel="stylesheet" href="./src/output.css">
 </head>
-<body class="bg-gray-100">
-  <nav class="bg-white text-gray-800 shadow h-12 flex items-center px-6">
-    <ul class="flex space-x-28 items-center">
-      <li class="ml-7 font-bold text-lg">&lt;/&gt;<a href="./index.html">CodeWithRaees</a></li>
-      <li><a href="index.html" class="hover:underline">Home</a></li>
-      <li><a href="Blogs.html" class="hover:underline">Blogs</a></li>
-      <li><a href="contact.html" class="hover:underline">Contact</a></li>
-    </ul>
-  </nav>  
+    <body class="bg-gray-100">
+      <nav class="bg-white text-gray-800 shadow h-12 flex items-center px-6">
+        <ul class="flex space-x-28 items-center">
+          <li class="ml-7 font-bold text-lg">&lt;/&gt;<a href="./index.html">CodeWithRaees</a></li>
+          <li><a href="index.html" class="hover:underline">Home</a></li>
+          <li><a href="Blogs.html" class="hover:underline">Blogs</a></li>
+          <li><a href="contact.html" class="hover:underline">Contact</a></li>
+          <li><a href="Login.html" class="hover:underline">Login</a></li>
+          <li><a href="signup.html" class="hover:underline">signup</a></li>
+        </ul>
+    <div class="relative w-full max-w-md mx-auto ml-7">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search..."
+        class="w-full border rounded-lg py-2 pl-4 pr-16 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <div class="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-md px-2 py-1 text-xs text-gray-600 shadow">
+        ⌘ K
+      </div>
+    </div>
+      </nav>
+      <div id="searchResults" class="mt-4 px-6"></div>
 
   <!-- ✅ Blog Content -->
   <main class="flex-grow">
@@ -38,17 +52,53 @@
     </div>
   </main>
 
-  <!-- ✅ Footer -->
-  <footer class="bg-white text-gray-600 text-center py-6 mt-16 shadow-inner">
-    © 2025 CodeWithRaees. All rights reserved.
-  </footer>
+  <footer class="bg-gray-100 text-gray-700 py-12">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="font-bold text-lg mb-2">Main</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Home</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
+          <li><a href="#" class="hover:underline">Work With Us</a></li>
+          <li><a href="#" class="hover:underline">My Gear</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Learn</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Courses</a></li>
+          <li><a href="#" class="hover:underline">Tutorials</a></li>
+          <li><a href="#" class="hover:underline">Notes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Terms</a></li>
+          <li><a href="#" class="hover:underline">Privacy</a></li>
+          <li><a href="#" class="hover:underline">Refund</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg mb-2">Social</h3>
+        <ul class="space-y-2">
+          <li class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" class="w-5 h-5" alt="GitHub"/><a href="#" class="hover:underline">GitHub</a></li>
+          <li class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/youtube.svg" class="w-5 h-5" alt="YouTube"/><a href="#" class="hover:underline">YouTube</a></li>
+          <li class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" class="w-5 h-5" alt="Facebook"/><a href="#" class="hover:underline">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 text-center text-gray-500">
+      Made with <span class="text-red-500">❤️</span> and <span class="text-purple-700">🧋</span> in Pakistan
+    </div>
+  </footer>  
 
   <!-- ✅ Script -->
   <script>
     const params = new URLSearchParams(window.location.search);
     const blogId = params.get('id');
   
-    fetch(`https://hearty-strength.up.railway.app/api/blogs/${blogId}`)
+    fetch(`http://localhost:5000/api/blogs/${blogId}`)
       .then(res => {
         if (!res.ok) throw new Error("Blog not found");
         return res.json();
@@ -78,5 +128,6 @@
         document.getElementById('loading').innerHTML = "<p class='text-red-500'>Sorry, we couldn't load the blog.</p>";
       });
   </script>
+  <script src="searche.js"></script>
 </body>
 </html>
