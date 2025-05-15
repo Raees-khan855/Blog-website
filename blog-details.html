@@ -105,7 +105,7 @@
     const params = new URLSearchParams(window.location.search);
     const blogId = params.get('id');
 
-    fetch(`http://localhost:5000/api/blogs/${blogId}`)
+    fetch(`https://hearty-strength.up.railway.app/api/blogs/${blogId}`)
       .then(res => {
         if (!res.ok) throw new Error("Blog not found");
         return res.json();

@@ -158,7 +158,7 @@
       };
 
       try {
-        const res = await fetch('http://localhost:5000/api/signup', {
+        const res = await fetch('https://hearty-strength.up.railway.app/api/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
@@ -169,7 +169,7 @@
 
         if (result.success) {
           const otp = prompt('Enter the OTP sent to your email:');
-          const verifyRes = await fetch('http://localhost:5000/api/verify-otp', {
+          const verifyRes = await fetch('https://hearty-strength.up.railway.app/api/verify-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: userEmail, otp })
