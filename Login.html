@@ -6,72 +6,69 @@
   <title>Login</title>
   <link href="./src/output.css" rel="stylesheet" />
 </head>
-    <body class="bg-gray-100">
-      <nav class="bg-white text-gray-800 shadow h-12 flex items-center px-6">
-        <ul class="flex space-x-28 items-center">
-          <li class="ml-7 font-bold text-lg">&lt;/&gt;<a href="./index.html">CodeWithRaees</a></li>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white text-gray-800 shadow py-4 px-6">
+      <div class="flex flex-wrap items-center justify-between">
+        <div class="font-bold text-lg flex items-center space-x-2">
+          <span>&lt;/&gt;</span>
+          <a href="./index.html">CodeWithRaees</a>
+        </div>
+        <ul class="flex flex-wrap space-x-4 mt-4 md:mt-0 md:space-x-8">
           <li><a href="index.html" class="hover:underline">Home</a></li>
           <li><a href="Blogs.html" class="hover:underline">Blogs</a></li>
           <li><a href="contact.html" class="hover:underline">Contact</a></li>
           <li><a href="Login.html" class="hover:underline">Login</a></li>
-          <li><a href="signup.html" class="hover:underline">signup</a></li>
+          <li><a href="signup.html" class="hover:underline">Signup</a></li>
         </ul>
-    <div class="relative w-full max-w-md mx-auto ml-7">
-      <input
-        id="searchInput"
-        type="text"
-        placeholder="Search..."
-        class="w-full border rounded-lg py-2 pl-4 pr-16 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <div class="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-md px-2 py-1 text-xs text-gray-600 shadow">
-        ⌘ K
+        <div class="relative w-full md:w-64 mt-4 md:mt-0">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search..."
+            class="w-full border rounded-lg py-2 pl-4 pr-16 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <div
+            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-md px-2 py-1 text-xs text-gray-600 shadow"
+          >
+            ⌘ K
+          </div>
+        </div>
       </div>
-    </div>
-      </nav>
-      <div id="searchResults" class="mt-4 px-6"></div>
-
-  <div class="flex bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-4xl ml-40 mt-8">
+    </nav>
     
+  <div id="searchResults" class="mt-4 px-6"></div>
+
+  <!-- Login Section -->
+  <div class="flex bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-4xl mx-auto mt-12">
     <!-- Form Section -->
-    <div class="w-full md:w-1/2 p-8 ml-16">
+    <div class="w-full md:w-1/2 p-8">
       <h2 class="text-2xl font-bold text-gray-800">Welcome back</h2>
       <p class="text-sm text-gray-600 mb-6">Login to your account</p>
 
       <form id="loginForm" class="space-y-4">
-        <input
-          type="email"
-          name="email"
-          placeholder="email@example.com"
-          required
-          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
+        <input type="email" name="email" placeholder="email@example.com" required
+          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
+        <input type="password" name="password" placeholder="Password" required
+          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
         
         <div class="flex items-center">
           <input type="checkbox" required class="mr-2" />
           <label class="text-sm text-gray-700">I'm not a robot</label>
         </div>
 
-        <button
-          type="submit"
-          class="w-full bg-gray-700 text-white py-2 rounded-md hover:bg-gray-800"
-        >
-          Continue
-        </button>
+        <button type="submit"
+          class="w-full bg-gray-700 text-white py-2 rounded-md hover:bg-gray-800">Continue</button>
       </form>
 
       <div class="my-4 text-center text-sm text-gray-500">Or continue with</div>
 
       <div class="flex justify-between space-x-2">
-        <a href="/auth/github" class="w-1/2 bg-gray-100 text-gray-800 py-2 rounded-md text-center border hover:bg-gray-200">GitHub</a>
-        <a href="/auth/google" class="w-1/2 bg-gray-100 text-gray-800 py-2 rounded-md text-center border hover:bg-gray-200">Google</a>
+        <a href="/auth/github"
+          class="w-1/2 bg-gray-100 text-gray-800 py-2 rounded-md text-center border hover:bg-gray-200">GitHub</a>
+        <a href="/auth/google"
+          class="w-1/2 bg-gray-100 text-gray-800 py-2 rounded-md text-center border hover:bg-gray-200">Google</a>
       </div>
 
       <p class="mt-4 text-sm text-center text-gray-600">
@@ -82,14 +79,11 @@
 
     <!-- Image Section -->
     <div class="hidden md:block md:w-1/2">
-      <img
-        src="https://www.codewithharry.com/login.webp"
-        alt="Login image"
-        class="w-full h-full object-cover"
-      />
+      <img src="https://www.codewithharry.com/login.webp" alt="Login image" class="w-full h-full object-cover" />
     </div>
   </div>
 
+  <!-- Footer -->
   <footer class="bg-gray-100 text-gray-700 py-12 mt-10">
     <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       <div>
@@ -134,15 +128,15 @@
   <!-- JS Script -->
   <script>
     const loginForm = document.getElementById("loginForm");
-  
+
     loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-  
+
       const formData = {
         email: loginForm.email.value,
         password: loginForm.password.value,
       };
-  
+
       try {
         const res = await fetch('http://localhost:5000/api/login', {
           method: "POST",
@@ -151,16 +145,12 @@
           },
           body: JSON.stringify(formData),
         });
-  
+
         const data = await res.json();
-  
+
         if (data.success) {
           alert("Login successful!");
-          
-          // Store JWT token in localStorage
           localStorage.setItem('authToken', data.token);
-  
-          // Redirect to the dashboard or home page
           window.location.href = "./index.html";
         } else {
           alert("Login failed: " + data.message);
@@ -170,7 +160,7 @@
         console.error(err);
       }
     });
-  </script>  
+  </script>
   <script src="searche.js"></script>
 </body>
 </html>

@@ -1,91 +1,157 @@
-    <!doctype html>
-    <html>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="./src/output.css" rel="stylesheet">
-    </head>
-    <body class="bg-gray-100">
-      <nav class="bg-white text-gray-800 shadow h-12 flex items-center px-6">
-        <ul class="flex space-x-28 items-center">
-          <li class="ml-7 font-bold text-lg">&lt;/&gt;<a href="./index.html">CodeWithRaees</a></li>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white text-gray-800 shadow py-4 px-6">
+      <div class="flex flex-wrap items-center justify-between">
+        <div class="font-bold text-lg flex items-center space-x-2">
+          <span>&lt;/&gt;</span>
+          <a href="./index.html">CodeWithRaees</a>
+        </div>
+        <ul class="flex flex-wrap space-x-4 mt-4 md:mt-0 md:space-x-8">
           <li><a href="index.html" class="hover:underline">Home</a></li>
           <li><a href="Blogs.html" class="hover:underline">Blogs</a></li>
           <li><a href="contact.html" class="hover:underline">Contact</a></li>
           <li><a href="Login.html" class="hover:underline">Login</a></li>
-          <li><a href="signup.html" class="hover:underline">signup</a></li>
+          <li><a href="signup.html" class="hover:underline">Signup</a></li>
         </ul>
-    <div class="relative w-full max-w-md mx-auto ml-7">
-      <input
-        id="searchInput"
-        type="text"
-        placeholder="Search..."
-        class="w-full border rounded-lg py-2 pl-4 pr-16 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <div class="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-md px-2 py-1 text-xs text-gray-600 shadow">
-        ⌘ K
+        <div class="relative w-full md:w-64 mt-4 md:mt-0">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search..."
+            class="w-full border rounded-lg py-2 pl-4 pr-16 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <div
+            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-md px-2 py-1 text-xs text-gray-600 shadow"
+          >
+            ⌘ K
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="searchResults" class="mt-4 px-6"></div>
+
+    <!-- Hero Section -->
+    <div class="flex flex-col md:flex-row items-center justify-center mt-10 px-6 gap-6">
+      <div class="md:w-1/2">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">
+          Welcome to CodeWithRaees
+        </h1>
+        <p class="text-gray-700 leading-relaxed">
+          Hi, I’m a passionate MERN stack developer with a knack for building
+          modern, responsive, and user-friendly web applications. I specialize
+          in MongoDB, Express.js, React, and Node.js, and I love turning ideas
+          into real-world projects. Whether it's a sleek front-end design or a
+          powerful backend system, I bring clean code and creative solutions to
+          the table. I'm also working on a freelancing platform where I’ll
+          share my experiences, code tips, and tech blogs to help others grow
+          in the web development journey.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <img
+          src="./image/My-Image.jpg"
+          class="w-40 h-auto rounded-lg shadow-md"
+          alt="My Image"
+        />
       </div>
     </div>
-      </nav>
-      <div id="searchResults" class="mt-4 px-6"></div>
 
-      <div class="flex mt-10">
-        <div class="w-xl ml-32">
-          <h1 class="text-4xl mb-5">Welcome to CodeWithRaees</h1>
-          Hi, I’m a passionate MERN stack developer with a knack for building modern, responsive, and user-friendly web applications. I specialize in MongoDB, Express.js, React, and Node.js, and I love turning ideas into real-world projects. Whether it's a sleek front-end design or a powerful backend system, I bring clean code and creative solutions to the table.
-          I'm also working on a freelancing platform where I’ll share my experiences, code tips, and tech blogs to help others grow in the web development journey.
+    <!-- Button -->
+    <div class="ml-14 mt-6">
+      <a
+        href="./Blogs.html"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded"
+      >
+        Start Learning
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-700 py-12 mt-10">
+      <div
+        class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+      >
+        <div>
+          <h3 class="font-bold text-lg mb-2">Main</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#" class="hover:underline">Contact</a></li>
+            <li><a href="#" class="hover:underline">Work With Us</a></li>
+            <li><a href="#" class="hover:underline">My Gear</a></li>
+          </ul>
         </div>
         <div>
-          <img src="./image/My-Image.jpg" class="w-full rounded-lg h-90 ml-25">
+          <h3 class="font-bold text-lg mb-2">Learn</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Courses</a></li>
+            <li><a href="#" class="hover:underline">Tutorials</a></li>
+            <li><a href="#" class="hover:underline">Notes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-2">Legal</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:underline">Terms</a></li>
+            <li><a href="#" class="hover:underline">Privacy</a></li>
+            <li><a href="#" class="hover:underline">Refund</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-2">Social</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2">
+              <img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg"
+                class="w-5 h-5"
+                alt="GitHub"
+              />
+              <a
+                href="https://github.com/Raees-khan855"
+                class="hover:underline"
+                >GitHub</a
+              >
+            </li>
+            <li class="flex items-center gap-2">
+              <img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/youtube.svg"
+                class="w-5 h-5"
+                alt="YouTube"
+              />
+              <a
+                href="https://youtube.com/@sigmacoding-h5z?si=w6SrUftdDCJPLsy7"
+                class="hover:underline"
+                >YouTube</a
+              >
+            </li>
+            <li class="flex items-center gap-2">
+              <img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg"
+                class="w-5 h-5"
+                alt="Facebook"
+              />
+              <a
+                href="https://www.facebook.com/share/18kNdqwJrr/"
+                class="hover:underline"
+                >Facebook</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
+      <div class="mt-10 text-center text-gray-500">
+        Made with <span class="text-red-500">❤️</span> and
+        <span class="text-purple-700">🧋</span> in Pakistan
+      </div>
+    </footer>
 
-      <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-36">
-        <a href="./Blogs.html">Start Learning</a>
-      </button>
-
-      <footer class="bg-gray-100 text-gray-700 py-12 mt-10">
-        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <div>
-            <h3 class="font-bold text-lg mb-2">Main</h3>
-            <ul class="space-y-2">
-              <li><a href="#" class="hover:underline">Home</a></li>
-              <li><a href="#" class="hover:underline">Contact</a></li>
-              <li><a href="#" class="hover:underline">Work With Us</a></li>
-              <li><a href="#" class="hover:underline">My Gear</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">Learn</h3>
-            <ul class="space-y-2">
-              <li><a href="#" class="hover:underline">Courses</a></li>
-              <li><a href="#" class="hover:underline">Tutorials</a></li>
-              <li><a href="#" class="hover:underline">Notes</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">Legal</h3>
-            <ul class="space-y-2">
-              <li><a href="#" class="hover:underline">Terms</a></li>
-              <li><a href="#" class="hover:underline">Privacy</a></li>
-              <li><a href="#" class="hover:underline">Refund</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">Social</h3>
-            <ul class="space-y-2">
-              <li class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" class="w-5 h-5" alt="GitHub"/><a href="https://github.com/Raees-khan855" class="hover:underline">GitHub</a></li>
-              <li class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/youtube.svg" class="w-5 h-5" alt="YouTube"/><a href="https://youtube.com/@sigmacoding-h5z?si=w6SrUftdDCJPLsy7" class="hover:underline">YouTube</a></li>
-              <li class="flex items-center gap-2"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" class="w-5 h-5" alt="Facebook"/><a href="https://www.facebook.com/share/18kNdqwJrr/" class="hover:underline">Facebook</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="mt-10 text-center text-gray-500">
-          Made with <span class="text-red-500">❤️</span> and <span class="text-purple-700">🧋</span> in Pakistan
-        </div>
-      </footer>
-      
-<script src="searche.js"></script>
-
-    </body>
-    </html>
+    <script src="searche.js"></script>
+  </body>
+</html>

@@ -6,34 +6,44 @@
   <title>Signup</title>
   <link href="./src/output.css" rel="stylesheet" />
 </head>
-    <body class="bg-gray-100">
-      <nav class="bg-white text-gray-800 shadow h-12 flex items-center px-6">
-        <ul class="flex space-x-28 items-center">
-          <li class="ml-7 font-bold text-lg">&lt;/&gt;<a href="./index.html">CodeWithRaees</a></li>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white text-gray-800 shadow py-4 px-6">
+      <div class="flex flex-wrap items-center justify-between">
+        <div class="font-bold text-lg flex items-center space-x-2">
+          <span>&lt;/&gt;</span>
+          <a href="./index.html">CodeWithRaees</a>
+        </div>
+        <ul class="flex flex-wrap space-x-4 mt-4 md:mt-0 md:space-x-8">
           <li><a href="index.html" class="hover:underline">Home</a></li>
           <li><a href="Blogs.html" class="hover:underline">Blogs</a></li>
           <li><a href="contact.html" class="hover:underline">Contact</a></li>
           <li><a href="Login.html" class="hover:underline">Login</a></li>
-          <li><a href="signup.html" class="hover:underline">signup</a></li>
+          <li><a href="signup.html" class="hover:underline">Signup</a></li>
         </ul>
-    <div class="relative w-full max-w-md mx-auto ml-7">
-      <input
-        id="searchInput"
-        type="text"
-        placeholder="Search..."
-        class="w-full border rounded-lg py-2 pl-4 pr-16 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <div class="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-md px-2 py-1 text-xs text-gray-600 shadow">
-        ⌘ K
+        <div class="relative w-full md:w-64 mt-4 md:mt-0">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search..."
+            class="w-full border rounded-lg py-2 pl-4 pr-16 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <div
+            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white border rounded-md px-2 py-1 text-xs text-gray-600 shadow"
+          >
+            ⌘ K
+          </div>
+        </div>
       </div>
-    </div>
-      </nav>
-      <div id="searchResults" class="mt-4 px-6"></div>
+    </nav>
+
+  <div id="searchResults" class="mt-4 px-6"></div>
 
   <!-- Signup Section -->
-  <div class="flex bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-4xl ml-40 mt-8">
+  <main class="flex bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-4xl mx-auto mt-10">
+    
     <!-- Form Section -->
-    <div class="w-full md:w-1/2 p-8 ml-16">
+    <section class="w-full md:w-1/2 p-8">
       <h2 class="text-2xl font-bold text-gray-800">Create Account</h2>
       <p class="text-sm text-gray-600 mb-6">Sign up to CodeWithRaees</p>
 
@@ -78,17 +88,17 @@
         Already have an account?
         <a href="Login.html" class="text-blue-500 hover:underline">Login</a>
       </p>
-    </div>
+    </section>
 
     <!-- Image Section -->
-    <div class="hidden md:block md:w-1/2">
+    <aside class="hidden md:block md:w-1/2">
       <img
         src="https://www.codewithharry.com/signup.jpg"
         alt="Signup image"
         class="w-full h-full object-cover"
       />
-    </div>
-  </div>
+    </aside>
+  </main>
 
   <!-- Footer -->
   <footer class="bg-gray-100 text-gray-700 py-12 mt-10">
@@ -132,43 +142,50 @@
     </div>
   </footer>
 
-  <!-- JS Script -->
+  <!-- Signup Script -->
   <script>
     const form = document.getElementById('signupForm');
     let userEmail = '';
-  
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-  
+
       userEmail = form.email.value;
-  
+
       const data = {
         email: userEmail,
         password: form.password.value
       };
-  
-      const res = await fetch('http://localhost:5000/api/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-  
-      const result = await res.json();
-      alert(result.message);
-  
-      if (result.success) {
-        const otp = prompt('Enter the OTP sent to your email:');
-        const verifyRes = await fetch('http://localhost:5000/api/verify-otp', {
+
+      try {
+        const res = await fetch('http://localhost:5000/api/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: userEmail, otp })
+          body: JSON.stringify(data)
         });
-  
-        const verifyResult = await verifyRes.json();
-        alert(verifyResult.message);
+
+        const result = await res.json();
+        alert(result.message);
+
+        if (result.success) {
+          const otp = prompt('Enter the OTP sent to your email:');
+          const verifyRes = await fetch('http://localhost:5000/api/verify-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: userEmail, otp })
+          });
+
+          const verifyResult = await verifyRes.json();
+          alert(verifyResult.message);
+        }
+
+      } catch (error) {
+        console.error('Signup error:', error);
+        alert('Something went wrong. Please try again.');
       }
     });
-  </script>  
+  </script>
+
   <script src="searche.js"></script>
 </body>
 </html>
