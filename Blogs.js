@@ -1,4 +1,4 @@
-fetch(`https://hearty-strength.up.railway.app/api/blogs`)
+fetch(`https://blog-website-backend-production.up.railway.app/api/blogs`)
   .then(res => res.json())
   .then(data => {
     const blogs = data.blogs || data; // support both formats

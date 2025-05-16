@@ -6,7 +6,7 @@
         if (!query) return;
 
         try {
-          const res = await fetch(`https://hearty-strength.up.railway.app/api/search?query=${encodeURIComponent(query)}`);
+          const res = await fetch(`https://blog-website-backend-production.up.railway.app/api/search?query=${encodeURIComponent(query)}`);
           const data = await res.json();
 
           if (data.success) {
